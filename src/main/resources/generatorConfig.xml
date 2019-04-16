@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  
+      <!DOCTYPE generatorConfiguration 
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+       
+      <generatorConfiguration>
+         <!--数据库驱动路径-->
+        <classPathEntry location="D:\I-world\cec\CloudCardMonitor\GZTMonitor\WebContent\WEB-INF\lib\mysql-connector-java-5.1.7-bin.jar" />
+      <context id="DB2Tables" targetRuntime="MyBatis3">
+       <commentGenerator>
+         <property name="suppressAllComments" value="true"/>
+       </commentGenerator>
+          <!--数据库链接url,用户名和密码-->
+       <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+             connectionURL="jdbc:mysql://120.132.33.248:13565/qrfilemanage"
+             userId="root" password="Cec@123456">
+         </jdbcConnection>
+       <javaTypeResolver>
+          <property name="forceBigDecimals" value="false"/>
+       </javaTypeResolver>
+       <!--域模型层,生成的目标包,项目目标源文件-->
+       <javaModelGenerator targetPackage="com.cecurs.entity" targetProject="src/main/java">
+           <property name="enableSubPackages" value="true"/>
+           <property name="trimStrings" value="true"/>
+       </javaModelGenerator>
+        <!--XML映射文件,生成的位置（目标包）,源代码文件夹-->
+       <sqlMapGenerator targetPackage="sql" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+       </sqlMapGenerator>
+        <!--XML对应的Mapper类-->
+       <javaClientGenerator type="XMLMAPPER" targetPackage="com.cecurs.dao" targetProject="src/main/java">
+         <property name="enableSubPackages" value="true"/>
+       </javaClientGenerator>
+
+       <!--下面是数据库表名和项目中需要生成类的名称，建议和数据库保持一致，如果有多个表，添加多个节点即可-->
+       <table  tableName="t_param" domainObjectName="FileParam" enableCountByExample="true" enableSelectByExample="true" enableUpdateByExample="true" enableDeleteByExample="true">
+          <columnOverride column="id" property="id" jdbcType="BIGINT"></columnOverride>
+          <columnOverride column="key" property="key" javaType="String"></columnOverride>
+          <columnOverride column="value" property="value" javaType="String"></columnOverride>
+          <columnOverride column="desc" property="desc" javaType="String"></columnOverride>
+          <columnOverride column="status" property="status" javaType="int"></columnOverride>
+          <columnOverride column="create_time" property="createTime" javaType="TIMESTAMP"></columnOverride>
+          <columnOverride column="update_time" property="updateTime" javaType="TIMESTAMP"></columnOverride>
+       </table>
+     </context>
+       
+</generatorConfiguration>

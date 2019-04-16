@@ -1,0 +1,20 @@
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    serviceUrl:
+#       defaultZone: http://127.0.0.1:8080/ServiceRegisterCenterService/eureka/ # 服务注册中心地址 本地
+#      defaultZone: http://172.16.100.156:8081/ServiceRegisterCenterService/eureka/ # 服务注册中心地址 156
+#      defaultZone: http://172.16.100.166:8021/ServiceRegisterCenterService/eureka/ # 服务注册中心地址 166
+       defaultZone: http://120.132.33.246:30003/ServiceRegisterCenterService/eureka/  # 北京测试环境 外网
+
+
+mybatis:
+  mapper-locations: classpath*:sql/*.xml
+  type-aliases-package: com.cecurs.cc.front.entity
+  config-location: classpath:/mybatis-config.xml
+  check-config-location: true
